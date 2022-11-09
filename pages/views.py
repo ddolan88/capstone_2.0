@@ -9,8 +9,8 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name= 'pages/about.html'
 
-class Dev1View(TemplateView):
+class Dev1(TemplateView):
     template_name = 'pages/dev1.html'
 
-class Dev2View(TemplateView):
+class Dev2(TemplateView):
     template_name= 'pages/dev2.html'
