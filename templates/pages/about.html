@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}About the Team{% endblock title %}
+
+{% block content %}
+
+    <!-- <div class="about-container">
+        <div class="about-title">
+            <img src="/static/img/GPU Store Title.png" alt="GPU Store">
+        </div>
+        <div class="about-project">
+
+        </div>
+    </div> -->
+
+    <div class="dev-container">
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h2>DeVonte G</h2>
+                <img src="/static/img/Blaq Phantom_Body_1000.png" alt="Blaq Phantom" width="115" height=" 100">
+                <a href="{% url 'dev1' %}">Read More</a>
+            </div>
+        </div>
+        <div class="box">
+            <span></span>
+            <div class="content">
+                <h2>Derek D</h2>
+                <img src="/static/img/Derek_fox.png" alt="Fox in Tux" width="115" height="100">
+                <a href="{% url 'dev2' %}">Read More</a>
+            </div>
+    </div>
+
+{% endblock content %}
