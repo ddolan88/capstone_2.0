@@ -16,7 +16,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 35px;
-        margin: 0 auto;
+        margin: 10vh auto;
         padding: 40px 0;
 
         .card {
@@ -39,12 +39,21 @@
                 align-items: center;
 
             &.face1 {
+                // border: 1px solid red;
                 box-sizing: border-box;
-                padding: 20px;
+                padding: 5px 10px 5px 10px;
 
                 h2 {
-                    margin: 0;
+                    border: 2px solid green;
+                    text-align: center;
+                    margin: -3rem auto auto auto;
                     padding: 0;
+                }
+
+                img {
+                    // border: 1px solid red;
+                    margin-left: 4.3rem;
+                    margin-right: auto;
                 }
 
                 .java {
@@ -69,10 +78,10 @@
                 &.face2 {
                     transition: 0.5s;
 
-                    h2 {
+                    h3 {
                         margin: 0;
                         padding: 0;
-                        font-size: 10em;
+                        font-size: 2em;
                         color: #fff;
                         transition: 0.5s;
                         text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
