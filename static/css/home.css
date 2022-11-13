@@ -93,3 +93,14 @@
     from {opacity: .4}
     to {opacity: 1}
   }
+
+  /* Home Store Cards */
+
+  .store-cards {
+    margin-top: 50px;
+  }
+
+  .hero-text {
+    text-align: center;
+    color: lightgray;
+  }

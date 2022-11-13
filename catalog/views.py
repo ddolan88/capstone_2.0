@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.generic import TemplateView
 import json
 from .models import *
 import datetime
 
 
-context = {'items': items, 'order': order}
+# context = {'items': items, 'order': order}
 
 # Create your views here.
 
@@ -23,9 +24,9 @@ def store(request):
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
         cartItems = order['get_cart_items']
 
-    products = Product.objects.all()
-    context = {'products': products, 'cartItems': cartItems}
-    return render(request, 'store/store.html', context)
+        products = Product.objects.all()
+        context = {'products': products, 'cartItems': cartItems}
+        return render(request, 'store/store.html', context)
 
 
 def cart(request):
@@ -94,7 +95,7 @@ def processOrder(request):
     return JsonResponse('Order was complete')
 
 
-from django.views.generic import TemplateView
+
 
 # Create your views here.
 
