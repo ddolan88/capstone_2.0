@@ -120,6 +120,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+# MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
+# MEDIA_URL = 
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 # Default primary key field type

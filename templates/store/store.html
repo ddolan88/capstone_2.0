@@ -5,88 +5,18 @@
 {% block title %}Store Page{% endblock title %}
 
 {% block content %}
-
-    <div class="prod-container">
-
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <span class="stars"></span>
-                    <h2 class="java">RTX 3060</h2>
-                    <img src="/static/img/ryzen_5600x__rtx_3060_aorus.png" alt="RTX 3060" width="135" height="150">
-                    <ul class="java">
-                        <li>NVIDIA CUDA Cores: 3584</li>
-                        <li>Boost Clock(GHz): 1.78GHz</li>
-                        <li>Memory Size: 12GB VRAM</li>
-                        <li>Memory Type: GDDR6</li>
-                    </ul>
-                    <!-- <p class="java">Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.</p> -->
-                </div>
-            </div>
-            <div class="face face2">
-                <h3>Low Tier</h3>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{product.image.url}} ">
+            <div class="box-element product">
+                <h6><strong>{{product.name}}</strong></h6>
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to cart</button>
+                <a href="#" class="btn btn-outline-success">View</a>
+                <h4 style="display: inline-block;float: right">${{product.price|floatformat:2}}</h4>
             </div>
         </div>
-
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <span class="stars"></span>
-                    <h2 class="python">RTX 3070</h2>
-                    <img src="/static/img/LianLiWhiteRTX3070-1536x1536.png" alt="RTX 3070 White" width="140" height="150">
-                    <ul class="python">
-                        <li>NVIDIA CUDA Cores: 5888</li>
-                        <li>Boost Clock(GHz): 1.73GHz</li>
-                        <li>Memory Size: 8GB VRAM</li>
-                        <li>Memory Type: GDDR6</li>
-                    </ul>
-                    <!-- <p class="python">Python is an interpreted, high-level and general-purpose programming language. Easy to learn very friendly. Attention to detail</p> -->
-                </div>
-            </div>
-            <div class="face face2">
-                <h3>Mid Tier</h3>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <span class="stars"></span>
-                    <h2 class="cSharp">RTX 3080</h2>
-                    <img src="/static/img/ryzen_5600x__rtx_3060_aorus.png" alt="RTX 3060" width="135" height="150">
-                    <ul class="cSharp">
-                        <li>NVIDIA CUDA Cores: </li>
-                        <li>Boost Clock(GHz):</li>
-                        <li>Memory Size:</li>
-                        <li>Memory Type:</li>
-                    </ul>
-                    <!-- <p class="cSharp">C# is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped and component-oriented.</p> -->
-                </div>
-            </div>
-            <div class="face face2">
-                <h3>High Tier</h3>
-            </div>
-        </div>
+        {% end for %}
     </div>
 
 {% endblock content %}
-
-<!-- <div class="row">
-        <div class="col-lg-4">
-            <div class="box-element product">
-
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="box-element product">
-
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="box-element product">
-
-            </div>
-        </div>
-    </div> -->
