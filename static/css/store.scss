@@ -44,7 +44,7 @@
                 padding: 5px 10px 5px 10px;
 
                 h2 {
-                    border: 2px solid green;
+                    // border: 2px solid green;
                     text-align: center;
                     margin: -3rem auto auto auto;
                     padding: 0;
@@ -55,6 +55,10 @@
                     margin-left: 4.3rem;
                     margin-right: auto;
                 }
+
+                ul{
+                    margin: auto auto auto auto;
+                };
 
                 .java {
                     background-color: #fffc00;

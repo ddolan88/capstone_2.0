@@ -31,7 +31,6 @@
   padding: 5px 10px 5px 10px;
 }
 .prod-container .card .face.face1 h2 {
-  border: 2px solid green;
   text-align: center;
   margin: -3rem auto auto auto;
   padding: 0;
@@ -39,6 +38,9 @@
 .prod-container .card .face.face1 img {
   margin-left: 4.3rem;
   margin-right: auto;
+}
+.prod-container .card .face.face1 ul {
+  margin: auto auto auto auto;
 }
 .prod-container .card .face.face1 .java {
   background-color: #fffc00;
