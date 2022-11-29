@@ -15,8 +15,10 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
     <link rel="stylesheet" href="{% static 'css/store.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <script type="text/javascript">
-        var user =  '{{request.user}}'
+        var user =  '{{ request.user }}'
         function getToken(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -62,21 +64,13 @@ const csrftoken = getToken('csrftoken');
                     <li class="nav-item">
                         <a class= 'nav-link' href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class='nav-link dropdown-toggle' data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a class='dropdown-item' href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another Action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated Link</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class='nav-link' href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class='nav-link' href="{% url 'signup' %}">SignUp</a>
                     </li>
                 </ul>
-                <!-- <form class='d-flex'>
-                    <input class='form-control me-sm-2' type='text' placeholder='Search'>
-                    <button class='btn btn-secondary my-2 my-sm-0' type='submit'>Search</button>
-                </form> -->
             </div>
         </div>
     </nav>

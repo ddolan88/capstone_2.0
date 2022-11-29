@@ -14,6 +14,6 @@ urlpatterns = [
     path('update_item/', views.updateItem, name='update_item'),
     path('process_order/', views.processOrder, name='update_order'),
     path('rtx3060/', RTX3060.as_view(), name = 'rtx3060'),
-    path('rtx3060/', RTX3070.as_view(), name = 'rtx3070'),
-    path('rtx3060/', RTX3080.as_view(), name = 'rtx3080'),
+    path('rtx3070/', RTX3070.as_view(), name = 'rtx3070'),
+    path('rtx3080/', RTX3080.as_view(), name = 'rtx3080'),
 ]

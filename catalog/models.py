@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import CustomUser
 
 # Create your models here.
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
     # customer = models(Customer, on_delete=models.SET_NULL, blank= True, null=True)
     name= models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
@@ -41,8 +41,8 @@ class Order(models.Model):
     @property
     def shipping(self):
         shipping = False
-        orderitems = self.orderitem_set.all()
-        for i in orderitems:
+        orderItems = self.orderitem_set.all()
+        for i in orderItems:
             if i.prooduct.digital == False:
                 shipping = True
         return shipping
@@ -52,11 +52,7 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         total = sum([item.get_total for item in orderitems])
         return total
-    @property
-    def get_cart_total(self):
-        orderitems = self.orderitem_set.all()
-        total = sum([item.quantity for item in orderitems])
-        return total
+
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank= True, null=True)
