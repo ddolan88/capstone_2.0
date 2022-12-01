@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.generic import TemplateView
 import json
 from .models import *
 import datetime
+from catalog.models import Customer
 
 
-context = {'items': items, 'order': order}
+# context = {'items': items, 'order': order}
 
 # Create your views here.
 
@@ -13,15 +15,16 @@ context = {'items': items, 'order': order}
 def store(request):
 
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer= Customer.objects.filter(user=request.user).first()
+        # customer = request.user.customer
         order, created = Order.objects.get_or_create(
             customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
+        cartItems = order.orderitem_set.all()
+        # cartItems = order.get_cart_items
     else:
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
-        cartItems = order['get_cart_items']
+        cartItems = []
 
     products = Product.objects.all()
     context = {'products': products, 'cartItems': cartItems}
@@ -31,11 +34,12 @@ def store(request):
 def cart(request):
 
     if request.user.is_authenticated:
-        customer = request.user.customer
+        # customer = request.user.customer
+        customer= Customer.objects.filter(user=request.user).first()
         order, created = Order.objects.get_or_create(
             customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
+        cartItems = order.orderitem_set.all()
+        # cartItems = order.get_cart_items
     else:
         items = []
         order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
@@ -92,3 +96,19 @@ def processOrder(request):
     else:
         print("user not logged in")
     return JsonResponse('Order was complete')
+
+
+
+
+# Create your views here.
+
+
+class RTX3060(TemplateView):
+    template_name= 'store/rtx3060.html'
+
+class RTX3070(TemplateView):
+    template_name= 'store/rtx3070.html'
+    
+
+class RTX3080(TemplateView):
+    template_name= 'store/rtx3080.html'

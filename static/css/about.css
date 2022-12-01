@@ -228,3 +228,34 @@ body {
     border: 1px solid rgba(255, 0, 88, 0.4);
     box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
+
+/* DeVonte */
+
+.dev1 {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    padding: 1rem 1rem 1rem 1rem;
+}
+.dev1 img {
+    border-radius: 25px;
+    height: 200px;
+    margin: auto auto 2rem auto;
+    width: 200px;
+}
+
+/* Derek */
+.dev2 {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.dev2 img {
+    border-radius: 25px;
+    height: 200px;
+    margin: auto auto 2rem auto;
+    width: 200px;
+}

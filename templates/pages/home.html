@@ -3,11 +3,84 @@
 {% block title %}🏠 Home 🏠{% endblock title %}
 
 {% block content %}
+
+{% load static %}
     <div class="home-welcome">
         <h1>
             <!-- <span class="glitch" data-text="Turn Back While You Can">
                 Adventure Awaits You
             </span> -->
         </h1>
+        
+        <body class="store">
+            <div class="gpu-slideshow">
+                    <div class="mySlides fade">
+                            <img class="gpu-images-slide" src="{% static 'img/RTX_3070.png' %}" alt="3070 Nivida Graphics Card">
+                            <div class="caption">3070 NVIDIA Graphics Card</div>
+                            <h3 class="hero-text">Featured Product</h3>
+                    </div>
+
+                    <div class="mySlides fade">
+                            <img class="gpu-images-slide" src="{% static 'img/RTX_3080.png' %}" alt="3080 Nivida Graphics Card">
+                            <div class="caption">3080 NVIDIA Graphics Card</div>
+                            <h3 class="hero-text">Featured Product</h3>
+                    </div>
+
+                    <div class="mySlides fade">
+                            <img class="gpu-images-slide" src="{% static 'img/RTX_3090.png' %}" alt="3090 Nivida Graphics Card">
+                            <div class="caption">3090 NVIDIA Graphics Card</div>
+                            <h3 class="hero-text">Featured Product</h3>
+                    </div>
+
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            </div>
+            <br>
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+            </div>
+
+            <!-- Store Items On Cards -->
+            <div class="container store-cards">
+                <div class="row">
+                    <div class="card col-sm" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'img/RTX_3070.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text">The GeForce RTX™ 3070 Ti and RTX™ 3070 graphics cards are powered by Ampere—NVIDIA’s 2nd gen RTX architecture. Built with dedicated 2nd gen RT Cores and 3rd gen Tensor Cores, streaming multiprocessors, and high-speed memory, they give you the power you need to rip through the most demanding games.</p>
+                        </div>
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-danger">Remove</button>
+                    </div>
+
+                    <div class="card col-sm" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'img/RTX_3080.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text">The GeForce RTX™ 3080 Ti and RTX™ 3080 graphics cards deliver the performance that gamers crave, powered by Ampere—NVIDIA’s 2nd gen RTX architecture. They are built with dedicated 2nd gen RT Cores and 3rd gen Tensor Cores, streaming multiprocessors, and G6X memory for an amazing gaming experience.</p>
+                        </div>
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-danger">Remove</button>
+                    </div>
+
+                    <div class="card col-sm" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'img/RTX_3090.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text">The GeForce RTX™ 3090 Ti and RTX™ 3090 are powered by Ampere—NVIDIA’s 2nd gen RTX architecture. They feature dedicated 2nd gen RT Cores and 3rd gen Tensor Cores, streaming multiprocessors, and a staggering 24 GB of G6X memory to deliver high-quality performance for gamers and creators.</p>
+                        </div>
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-danger">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+            <script src="{% static 'js/home.js' %}"></script>
+    </body>
+
     </div>
 {% endblock content %}

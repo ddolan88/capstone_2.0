@@ -1,35 +1,36 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import CustomUser
 
 # Create your models here.
 class Customer(models.Model):
-    user = models.OneToOneFields(User, on_delete=models.CASCADE, null=True, blank=True)
-    Customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank= True, null=True)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
+    # customer = models(Customer, on_delete=models.SET_NULL, blank= True, null=True)
+    name= models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
 
 class Product(models.Model):
-        name = models.CharField(max_length=200, null=True)
-        price = models.FloatField()
-        digital = models.BooleanField(default = False, null=True, blank = False)
+    name = models.CharField(max_length=200, null=True)
+    price = models.FloatField()
+    digital = models.BooleanField(default = False, null=True, blank = False)
         # install pillow using pip
-        image = models.ImageField(null=True, blank=True, null=True)
+    image = models.ImageField(null=True, blank=True)
 
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
 
-        @property
-        def imageURL(self):
-            try:
-                url = self.image.url
-            except:
-                url = ''
-            return url
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
 
 class Order(models.Model):
-    Customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank= True, null=True)
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank= True, null=True)
     date_ordered = models.DateTimeField(auto_now_add = True)
     complete = models.CharField(max_length=200, null=True)
     transaction_id = models.CharField(max_length=200, null=True)
@@ -40,8 +41,8 @@ class Order(models.Model):
     @property
     def shipping(self):
         shipping = False
-        orderitems = self.orderitem_set.all()
-        for i in orderitems:
+        orderItems = self.orderitem_set.all()
+        for i in orderItems:
             if i.prooduct.digital == False:
                 shipping = True
         return shipping
@@ -51,11 +52,7 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         total = sum([item.get_total for item in orderitems])
         return total
-    @property
-    def get_cart_total(self):
-        orderitems = self.orderitem_set.all()
-        total = sum([item.quantity for item in orderitems])
-        return total
+
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank= True, null=True)
